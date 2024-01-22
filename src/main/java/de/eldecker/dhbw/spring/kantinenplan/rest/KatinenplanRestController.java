@@ -36,7 +36,34 @@ public class KatinenplanRestController {
         _datenbank = db;
     }
     
+       
+    /**
+     * REST-Endpunkt, um Gerichte für {@code datum} abzurufen.
+     * 
+     * @param datum Datum im Format {@code yyyy-MM-dd}
+     * 
+     * @return Liste der Gerichte, oder Fehlermeldung
+     */
+    @GetMapping("/abrufen/{datum}")
+    public ResponseEntity<String> gerichteAbrufen(@PathVariable String datum) {
     
+        String datumNormalized = datum.trim();
+        
+        try {
+        
+            List<String> gerichteList = _datenbank.getGerichteFuerDatum(datumNormalized);
+
+            return ResponseEntity.status(OK)
+                                 .body( gerichteList.toString() );                                                          
+        }
+        catch (KantinenException ex) {
+            
+            return ResponseEntity.status(BAD_REQUEST)
+                                 .body("Ungültiges Datum: " + ex.getMessage());                                                          
+        }         
+    }
+    
+
     /**
      * REST-Endpunkt, um neues {@code gericht} für {@code datum} einzuplanen.
      *
@@ -68,32 +95,4 @@ public class KatinenplanRestController {
         }                        
     }
     
-
-    /**
-     * REST-Endpunkt, um Gerichte für {@code datum} abzurufen.
-     * 
-     * @param datum Datum im Format {@code yyyy-MM-dd}
-     * 
-     * @return Liste der Gerichte, oder Fehlermeldung
-     */
-    @GetMapping("/abrufen/{datum}")
-    public ResponseEntity<String> gerichteAbrufen(@PathVariable String datum) {
-    
-        String datumNormalized = datum.trim();
-        
-        try {
-        
-            List<String> gerichteList = _datenbank.getGerichteFuerDatum(datumNormalized);
-
-            return ResponseEntity.status(OK)
-                                 .body( gerichteList.toString() );                                                          
-        }
-        catch (KantinenException ex) {
-            
-            return ResponseEntity.status(BAD_REQUEST)
-                                 .body("Ungültiges Datum: " + ex.getMessage());                                                          
-        }         
-    }
-    
-
 }

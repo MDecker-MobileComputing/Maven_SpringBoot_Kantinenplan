@@ -10,7 +10,7 @@ jobs:
     steps:
     - name: Git-Repo auschecken
       uses: actions/checkout@v4
-    - name: JDK ${{ matrix.java-version }} einrichten
+    - name: JDK einrichten
       uses: actions/setup-java@v3
       with:
         java-version: 21
