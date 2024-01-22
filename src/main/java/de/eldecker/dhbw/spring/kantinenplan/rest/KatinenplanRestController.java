@@ -51,14 +51,14 @@ public class KatinenplanRestController {
     public ResponseEntity<String> gerichtEinplanen( @RequestParam String datum,
                                                     @RequestParam String gericht ) {
 
-        final String datumNormalized   = datum.trim();
-        final String gerichtNormalized = gericht.trim();
+        String datumNormalized   = datum.trim();
+        String gerichtNormalized = gericht.trim();
         
         try {
         
             int anzahl = _datenbank.addGericht(datumNormalized, gerichtNormalized);
             
-            final String antwort = "Es gibt jetzt " + anzahl + " Gericht(e) am \"" + datum + ".";
+            String antwort = "Es gibt jetzt " + anzahl + " Gericht(e) am \"" + datum + ".";
 
             return ResponseEntity.status(OK).body(antwort);            
         }
@@ -79,11 +79,11 @@ public class KatinenplanRestController {
     @GetMapping("/abrufen/{datum}")
     public ResponseEntity<String> gerichteAbrufen(@PathVariable String datum) {
     
-        final String datumNormalized = datum.trim();
+        String datumNormalized = datum.trim();
         
         try {
         
-            final List<String> gerichteList = _datenbank.getGerichteFuerDatum(datumNormalized);
+            List<String> gerichteList = _datenbank.getGerichteFuerDatum(datumNormalized);
 
             return ResponseEntity.status(OK)
                                  .body( gerichteList.toString() );                                                          
