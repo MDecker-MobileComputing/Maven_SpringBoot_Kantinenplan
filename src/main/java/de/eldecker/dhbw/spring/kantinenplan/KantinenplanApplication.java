@@ -10,9 +10,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class KantinenplanApplication {
 
-	public static void main(String[] args) {
+	public static void main( String[] args ) {
 
-		SpringApplication.run(KantinenplanApplication.class, args);
+		SpringApplication.run( KantinenplanApplication.class, args );
 	}
 
 }
