@@ -386,6 +386,79 @@
         },
         {
           "entity": {
+            "type": "Service",
+            "id": "dbc87620-f152-4ff9-88fe-a927515151b7",
+            "name": "Demo-Daten abfragen"
+          },
+          "children": [
+            {
+              "entity": {
+                "type": "Request",
+                "method": {
+                  "link": "http://tools.ietf.org/html/rfc7231#section-4.3.1",
+                  "name": "GET"
+                },
+                "body": {
+                  "formBody": {
+                    "overrideContentType": true,
+                    "encoding": "application/x-www-form-urlencoded",
+                    "items": []
+                  },
+                  "bodyType": "Text"
+                },
+                "uri": {
+                  "query": {
+                    "delimiter": "&",
+                    "items": []
+                  },
+                  "scheme": {
+                    "name": "http",
+                    "version": "V11"
+                  },
+                  "host": "localhost:8080",
+                  "path": "/kantinenplan/v1/abrufen/2030-05-02"
+                },
+                "id": "a51aa734-0e9b-4abb-a138-a4f17ba9d145",
+                "name": "Speiseplan am 2. Mai 2030",
+                "headers": []
+              }
+            },
+            {
+              "entity": {
+                "type": "Request",
+                "method": {
+                  "link": "http://tools.ietf.org/html/rfc7231#section-4.3.1",
+                  "name": "GET"
+                },
+                "body": {
+                  "formBody": {
+                    "overrideContentType": true,
+                    "encoding": "application/x-www-form-urlencoded",
+                    "items": []
+                  },
+                  "bodyType": "Text"
+                },
+                "uri": {
+                  "query": {
+                    "delimiter": "&",
+                    "items": []
+                  },
+                  "scheme": {
+                    "name": "http",
+                    "version": "V11"
+                  },
+                  "host": "localhost:8080",
+                  "path": "/kantinenplan/v1/abrufen/2030-05-03"
+                },
+                "id": "1efb276d-6a44-4b2f-9697-b8d2a412cf47",
+                "name": "Speiseplan am 3. Mai 2030",
+                "headers": []
+              }
+            }
+          ]
+        },
+        {
+          "entity": {
             "type": "Request",
             "method": {
               "requestBody": true,

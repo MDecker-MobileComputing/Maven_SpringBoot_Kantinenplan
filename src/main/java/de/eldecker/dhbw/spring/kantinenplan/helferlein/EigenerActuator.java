@@ -25,6 +25,17 @@ public class EigenerActuator {
  
     
     /**
+     * Konstruktor für Dependency Injection.
+     */
+    public EigenerActuator( KantinenplanRestController kantinenplanRestController,
+                            KantinenplanDatenbank      datenbank ) {
+        
+        _kantinenplanRestController = kantinenplanRestController;
+        _datenbank                  = datenbank;
+    }
+    
+    
+    /**
      * Gibt die Metriken der Kantinenanwendung für Bereitstellung
      * über Actuator-Endpunkt zurück.
      * 
@@ -42,7 +53,6 @@ public class EigenerActuator {
                                                           _kantinenMetriken[0], 
                                                           _kantinenMetriken[1]
                                                         );
-        
         return metrikObjekt;
     }
     
