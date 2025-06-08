@@ -4,8 +4,12 @@
 
 Das Repository enthält ein Maven-Projekt für eine Spring-Boot-Anwendung mit Java, die eine einfache
 REST-API implementiert: für bestimmte Tage können Gerichte für eine Kantine eingeplant werden.
-Achtung: Die Datenbankfunktionalität ist nur simuliert, eingegebene Daten werden also nicht
-persistiert.
+
+<br>
+
+**Achtung:** 
+Die Datenbankfunktionalität ist nur simuliert, mit HTTP-POST-Requests eingeplante Gerichte gehen
+beim Herunterfahren der Anwendung verloren.
 
 <br>
 

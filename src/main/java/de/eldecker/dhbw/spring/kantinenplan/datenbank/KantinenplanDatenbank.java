@@ -64,7 +64,7 @@ public class KantinenplanDatenbank {
     /**
      * Ein {@code gericht} für {@code datum} hinzufügen.
      * 
-     * @param datum Datum im Format {@code YYYY-MM-DD}
+     * @param datum Datum im Format {@code YYYY-MM-DD}.
      * 
      * @param gericht Gericht, dass u.a. an {@code datum} angeboten wird.
      * 

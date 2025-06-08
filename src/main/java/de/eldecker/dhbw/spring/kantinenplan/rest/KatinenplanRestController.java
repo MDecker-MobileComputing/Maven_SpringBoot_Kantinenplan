@@ -45,7 +45,7 @@ public class KatinenplanRestController {
     /**
      * REST-Endpunkt, um Gerichte für {@code datum} abzurufen.
      * 
-     * URL bei lokaler Ausführung:
+     * Beispiel-URL bei lokaler Ausführung:
      * <pre>
      * http://localhost:8080/kantinenplan/v1/abrufen/2030-01-23
      * </pre> 
