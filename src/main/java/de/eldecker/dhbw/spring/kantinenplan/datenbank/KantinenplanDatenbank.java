@@ -24,6 +24,7 @@ public class KantinenplanDatenbank {
     /** Datumsformat für Parsen Strings mit Datumswerten. */
     private final static DateTimeFormatter DATUMS_FORMATIERER = DateTimeFormatter.ofPattern( "yyyy-MM-dd" );
     
+    
     /**
      * HashMap mit Datenbestand: 
      * <ul>
@@ -130,6 +131,18 @@ public class KantinenplanDatenbank {
             throw new KantinenException( "Datum \"" + datum + "\" ist nicht gültig: " +
                                          ex.getMessage() );
         }        
+    }
+    
+    
+    /**
+     * Anzahl der Tage, für die mindestens ein Gericht in der Datenbank ist.
+     * Es kann sich auch um Tage in der Vergangenheit handeln
+     * 
+     * @return Anzahl der Tage, für die mindestens ein Gericht eingeplant ist.
+     */
+    public int getAnzahlTageMitGerichten() {
+        
+        return _hashMap.size();
     }
     
 }

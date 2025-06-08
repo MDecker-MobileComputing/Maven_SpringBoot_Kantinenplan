@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import de.eldecker.dhbw.spring.kantinenplan.datenbank.KantinenplanDatenbank;
 import de.eldecker.dhbw.spring.kantinenplan.model.KantinenException;
+import de.eldecker.dhbw.spring.kantinenplan.model.ZaehlerBean;
 
 
 /**
@@ -26,19 +27,30 @@ import de.eldecker.dhbw.spring.kantinenplan.model.KantinenException;
  */
 @RestController
 @RequestMapping( "/kantinenplan/v1" )
-public class KatinenplanRestController {
+public class KantinenplanRestController {
 
     /** Bean mit "Datenbank" der Gerichte. */
     private KantinenplanDatenbank _datenbank;
+    
+    /** Zähler für HTTP-GET-Anfragen; Bean hat Typ "Prototype". */
+    private ZaehlerBean _getZaehler; 
+    
+    /** Zähler für HTTP-POST-Anfragen; Bean hat Typ "Prototype". */
+    private ZaehlerBean _postZaehler;
     
     
     /**
      * Konstruktor für Dependency Injection.
      */
     @Autowired
-    public KatinenplanRestController( KantinenplanDatenbank db ) {
-        
+    public KantinenplanRestController( KantinenplanDatenbank db,     
+                                       ZaehlerBean getZaehler, 
+                                       ZaehlerBean postZaehler
+                                     ) {
         _datenbank = db;
+        
+        _getZaehler  = getZaehler;
+        _postZaehler = postZaehler; 
     }
     
        
@@ -56,6 +68,8 @@ public class KatinenplanRestController {
      */
     @GetMapping( "/abrufen/{datum}" )
     public ResponseEntity<String> gerichteAbrufen( @PathVariable String datum ) {
+        
+        _getZaehler.inkrement(); 
     
         final String datumNormalized = datum.trim();
         
@@ -93,7 +107,8 @@ public class KatinenplanRestController {
     @PostMapping( "/einplanen" )
     public ResponseEntity<String> gerichtEinplanen( @RequestParam String datum,
                                                     @RequestParam String gericht ) {
-
+        _postZaehler.inkrement();
+        
         final String datumNormalized   = datum.trim();
         final String gerichtNormalized = gericht.trim();
         
@@ -110,6 +125,22 @@ public class KatinenplanRestController {
             return ResponseEntity.status( BAD_REQUEST )
             		             .body( "Fehler: " + ex.getMessage() );                                                                               
         }                        
+    }
+    
+    
+    /**
+     * Getter für Zählerstände der HTTP-GET- und POST-Anfragen.
+     * 
+     * @return Int-Array mit zwei Komponenten: Erste Komponente ist
+     *         Zählerstand für GET-Anfragen, zweite Komponente ist Zählerstand
+     *         für POST-Anfragen.
+     */
+    public int[] getZaehlerWerte() {
+        
+        return new int[] { 
+                            _getZaehler.getZaehlerstand(), 
+                            _postZaehler.getZaehlerstand() 
+                         };
     }
     
 }
