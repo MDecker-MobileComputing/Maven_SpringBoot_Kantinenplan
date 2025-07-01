@@ -132,8 +132,8 @@ public class KantinenplanRestController {
      * Getter für Zählerstände der HTTP-GET- und POST-Anfragen.
      * 
      * @return Int-Array mit zwei Komponenten: Erste Komponente ist
-     *         Zählerstand für GET-Anfragen, zweite Komponente ist Zählerstand
-     *         für POST-Anfragen.
+     *         Zählerstand für GET-Anfragen, zweite Komponente ist 
+     *         Zählerstand für POST-Anfragen.         
      */
     public int[] getZaehlerWerte() {
         

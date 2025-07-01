@@ -22,7 +22,8 @@ import de.eldecker.dhbw.spring.kantinenplan.model.KantinenException;
 public class KantinenplanDatenbank {
 
     /** Datumsformat für Parsen Strings mit Datumswerten. */
-    private final static DateTimeFormatter DATUMS_FORMATIERER = DateTimeFormatter.ofPattern( "yyyy-MM-dd" );
+    private final static DateTimeFormatter DATUMS_FORMATIERER = 
+    								DateTimeFormatter.ofPattern( "yyyy-MM-dd" );
     
     
     /**

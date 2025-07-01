@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
  * Bean mehrere Instanzen dieser Bean verwendet).
  */
 @Component
-@Scope("prototype")
+@Scope( "prototype" )
 public class ZaehlerBean {
 
     /** Zählerstand, den diese Bean verwaltet. */
