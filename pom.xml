@@ -21,7 +21,7 @@
     <!-- Weitere Metadaten -->
     <name>Kantinenplan</name>
     <description>REST-API für Kantinenplan</description>
-    <url>https://github.com/MDecker-MobileComputing/Maven_SpringBoot_Katinenplan</url>
+    <url>https://github.com/MDecker-MobileComputing/Maven_SpringBoot_Kantinenplan</url>
     <inceptionYear>2023</inceptionYear>
     <licenses>
       <license>
