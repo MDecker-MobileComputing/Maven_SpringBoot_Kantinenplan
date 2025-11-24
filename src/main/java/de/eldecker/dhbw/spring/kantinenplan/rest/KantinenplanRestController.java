@@ -75,7 +75,8 @@ public class KantinenplanRestController {
         
         try {
         
-            final List<String> gerichteList = _datenbank.getGerichteFuerDatum( datumNormalized );
+            final List<String> gerichteList = 
+            			_datenbank.getGerichteFuerDatum( datumNormalized );
 
             return ResponseEntity.status( OK )
                                  .body( gerichteList.toString() );                                                          
