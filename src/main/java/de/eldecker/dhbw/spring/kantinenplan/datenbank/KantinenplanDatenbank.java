@@ -40,7 +40,8 @@ public class KantinenplanDatenbank {
     /**
      * Gerichte für {@code datum} abrufen.
      * 
-     * @param datum Datum, für das die Gerichte zurückgeliefert werden sollen.
+     * @param datum Datum im Format {@code yyyy-MM-dd}, für das die Gerichte zurückgeliefert 
+     *              werden sollen.
      * 
      * @return List mit Gerichten; es wird eine leere Liste (aber nicht {@code null})
      *         zurückgegeben, wenn für das Datum noch keine Gerichte definiert wurden.
@@ -66,7 +67,7 @@ public class KantinenplanDatenbank {
     /**
      * Ein {@code gericht} für {@code datum} hinzufügen.
      * 
-     * @param datum Datum im Format {@code YYYY-MM-DD}.
+     * @param datum Datum im Format {@code yyyy-MM-dd}.
      * 
      * @param gericht Gericht, dass u.a. an {@code datum} angeboten wird.
      * 
