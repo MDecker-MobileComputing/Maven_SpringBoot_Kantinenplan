@@ -10,8 +10,9 @@ package de.eldecker.dhbw.spring.kantinenplan.model;
  * 
  * @param anzahlPostAnfragen     Anzahl der POST-Anfragen
  */
-public record KantinenMetriken( int anzahlTageMitGerichten,
-                                int anzahlGetAnfragen,
+public record KantinenMetriken( 
+		                        int anzahlTageMitGerichten,
+                                int anzahlGetAnfragen     ,
                                 int anzahlPostAnfragen 
                               ) {
 
